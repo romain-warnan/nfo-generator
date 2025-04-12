@@ -1,7 +1,7 @@
 #!/bin/bash
 
 MOVIE_FILE=$(basename "$1")
-OUTPUT_DIRECTORY=${2:-.}
+OUTPUT_DIRECTORY="$2"
 mkdir -p "$OUTPUT_DIRECTORY/none" "$OUTPUT_DIRECTORY/many"
 echo "'$MOVIE_FILE'"
 MOVIE_NAME=$(echo "${MOVIE_FILE%.*}" | sed -E 's: \([0-9]{4}\)::')

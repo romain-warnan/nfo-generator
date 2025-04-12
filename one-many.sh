@@ -3,7 +3,7 @@
 MANY_FILE=$(basename "$1")
 OUTPUT_DIRECTORY="$2"
 echo "'$MANY_FILE'"
-MOVIE_NAME=$(echo "${MANY_FILE%.nfo.many}" | sed -E 's: \([0-9]{4}\)::')
+MOVIE_NAME=$(echo "${MANY_FILE%.nfo.many}" | sed -E 's: \(([0-9]{4})\): \1:')
 echo "$MOVIE_NAME"
 HEADER_USER_AGENT="Mozilla/5.0"
 HEADER_ACCEPT="text/html"
