@@ -2,7 +2,7 @@
 
 MOVIE_FILE=$(basename "$1")
 OUTPUT_DIRECTORY=${2:-.}
-mkdir -p "$OUTPUT_DIRECTORY"
+mkdir -p "$OUTPUT_DIRECTORY/none" "$OUTPUT_DIRECTORY/many"
 echo "'$MOVIE_FILE'"
 MOVIE_NAME=$(echo "${MOVIE_FILE%.*}" | sed -E 's: \([0-9]{4}\)::')
 export MOVIE_NAME
@@ -32,12 +32,12 @@ NFO_FILE="${MOVIE_FILE%.*}.nfo"
 NUMBER_OF_IDS=$(echo "$IMDB_IDS" | wc -l)
 if [ "$NUMBER_OF_IDS" -gt 1 ]; then
   echo "Multiple IMDB IDs found for movie: '$MOVIE_NAME'"
-  NFO_FILE="${MOVIE_FILE%.*}.nfo.many"
+  NFO_FILE="many/${MOVIE_FILE%.*}.nfo.many"
 else
   IMDB_ID=$(echo "$IMDB_IDS" | head -n 1)
   if [ -z "$IMDB_ID" ]; then
     echo "No IMDB ID found for movie: '$MOVIE_NAME'"
-    NFO_FILE="${MOVIE_FILE%.*}.nfo.none"
+    NFO_FILE="none/${MOVIE_FILE%.*}.nfo.none"
   else
     NFO_FILE="${MOVIE_FILE%.*}.nfo"
     echo "Found IMDB ID: $IMDB_ID"

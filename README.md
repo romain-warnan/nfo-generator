@@ -3,10 +3,10 @@
 Ce script génère un fichier NFO pour une vidéo donnée en scrapant grossièrement le site IMDb.
 
 ```bash
-./create-nfo.sh [MOVIE_FOLER] [NFO_FOLDER]
+./create-nfo.sh [MOVIE_FOLER]
 ```
 
-Pour chaque fichier vidéo du répetoire passé en paramètre, il y a trois résultats possibles :
+Pour chaque fichier vidéo du répertoire passé en paramètre, il y a trois résultats possibles :
 
 ## 1. Un seul id IMDb trouvé
 
